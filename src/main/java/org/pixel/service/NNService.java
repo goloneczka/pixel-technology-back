@@ -1,5 +1,6 @@
 package org.pixel.service;
 
+import org.pixel.exception.AppExceptionBuilder;
 import org.pixel.model.NNPlace;
 import org.springframework.stereotype.Service;
 
@@ -39,7 +40,19 @@ public class NNService {
     }
 
     private double euklidesDistance(NNPlace stPlace, NNPlace ndPlace) {
-        return Math.sqrt((stPlace.getLatitude() - ndPlace.getLatitude()) * (stPlace.getLatitude() - ndPlace.getLatitude()) +
-                (stPlace.getLongitude() - ndPlace.getLongitude()) * (stPlace.getLongitude() - ndPlace.getLongitude()));
+
+        float stLatitude, ndLatitude, stLongitude, ndLongitude;
+        try {
+            stLatitude = Float.parseFloat(stPlace.getLatitude());
+            ndLatitude = Float.parseFloat(ndPlace.getLatitude());
+            stLongitude = Float.parseFloat(stPlace.getLongitude());
+            ndLongitude = Float.parseFloat(ndPlace.getLongitude());
+        } catch (NumberFormatException nfe) {
+            throw new AppExceptionBuilder().addError("Podany ciag nie jest liczba").build();
+        }
+        return Math.sqrt((stLatitude - ndLatitude) * (stLatitude - ndLatitude) +
+                (stLongitude - ndLongitude) * (stLongitude - ndLongitude));
     }
+
+
 }
