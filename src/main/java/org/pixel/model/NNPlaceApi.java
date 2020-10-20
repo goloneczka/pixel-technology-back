@@ -1,28 +1,26 @@
 package org.pixel.model;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
-public class NNPlace {
+public class NNPlaceApi {
 
-    private float latitude;
-    private float longitude;
+    private String latitude;
+    private String longitude;
     private String name;
 
-    public float getLatitude() {
+    public String getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(float latitude) {
+    public void setLatitude(String latitude) {
         this.latitude = latitude;
     }
 
-    public float getLongitude() {
+    public String getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(float longitude) {
+    public void setLongitude(String longitude) {
         this.longitude = longitude;
     }
 
@@ -30,14 +28,14 @@ public class NNPlace {
         return name;
     }
 
-    public NNPlace() {
+    public NNPlaceApi() {
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
-    public NNPlace(float latitude, float longitude, String name) {
+    public NNPlaceApi(String latitude, String longitude, String name) {
         this.latitude = latitude;
         this.longitude = longitude;
         this.name = name;
@@ -47,7 +45,7 @@ public class NNPlace {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        NNPlace nnPlace = (NNPlace) o;
+        NNPlaceApi nnPlace = (NNPlaceApi) o;
         return Objects.equals(latitude, nnPlace.latitude) &&
                 Objects.equals(longitude, nnPlace.longitude) &&
                 Objects.equals(name, nnPlace.name);
@@ -58,10 +56,4 @@ public class NNPlace {
         return Objects.hash(latitude, longitude, name);
     }
 
-    public void setLatitudeFromString(String latitude){
-        this.latitude = Float.parseFloat(latitude);
-    }
-    public void setLongitudeFromString(String longitude){
-        this.longitude = Float.parseFloat(longitude);
-    }
 }
