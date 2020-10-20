@@ -3,11 +3,11 @@ package org.pixel.model;
 public class LuhnaData {
 
     private String input;
-    private int digital;
+    private int digit;
 
-    public LuhnaData(String input, int digital) {
+    public LuhnaData(String input, int digit) {
         this.input = input;
-        this.digital = digital;
+        this.digit = digit;
     }
 
 
@@ -19,12 +19,12 @@ public class LuhnaData {
         this.input = input;
     }
 
-    public int getDigital() {
-        return digital;
+    public int getDigit() {
+        return digit;
     }
 
-    public void setDigital(int digital) {
-        this.digital = digital;
+    public void setDigit(int digit) {
+        this.digit = digit;
     }
 
 }

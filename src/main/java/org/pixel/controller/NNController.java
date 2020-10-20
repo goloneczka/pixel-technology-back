@@ -18,8 +18,8 @@ public class NNController {
         this.nnService = nnService;
     }
 
-    @PostMapping(value = "")
-    public ResponseEntity<List<NNPlace>> addWorkerLeaves(@RequestBody List<NNPlace> places) {
+    @PostMapping()
+    public ResponseEntity<List<NNPlace>> calculateNN(@RequestBody List<NNPlace> places) {
 
         return ResponseEntity.ok()
                 .body(nnService.getNN(places));

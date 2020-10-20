@@ -28,6 +28,8 @@ public class NNPlace {
         return name;
     }
 
+    public NNPlace() { }
+
     public void setName(String name) {
         this.name = name;
     }
